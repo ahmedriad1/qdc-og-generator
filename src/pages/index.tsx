@@ -58,8 +58,8 @@ export const Config: React.FC = () => {
     return searchParams.toString();
   }, [config, layoutConfig]);
 
-  const imageURL = useMemo(() => `/api/image?${query}`, [query]);
-  const htmlURL = useMemo(() => `/api/html?${query}`, [query]);
+  const imageURL = useMemo(() => `/image?${query}`, [query]);
+  const htmlURL = useMemo(() => `/html?${query}`, [query]);
 
   return (
     <div className="block w-[500px] max-w-full space-y-7">
@@ -131,7 +131,7 @@ export const Viewer: React.FC = () => {
     return searchParams.toString();
   }, [config, layoutConfig]);
 
-  const imageURL = useMemo(() => `/api/image?${query}`, [query]);
+  const imageURL = useMemo(() => `/image?${query}`, [query]);
 
   const debouncedImageURL = useDebouncedValue(imageURL, 200);
   useEffect(() => setIsLoaded(false), [debouncedImageURL]);
