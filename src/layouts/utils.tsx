@@ -1,5 +1,4 @@
 import { ILayoutConfig } from "../types";
-import { defaultTheme } from "./colours";
 
 export const gString = (
   layoutConfig: ILayoutConfig,
@@ -8,10 +7,6 @@ export const gString = (
 ): string => {
   const value = layoutConfig[name] ?? defaultValue;
   return Array.isArray(value) ? value.join(", ") : value;
-};
-
-export const getTheme = (config: ILayoutConfig) => {
-  return (config.Theme ?? defaultTheme).toLowerCase();
 };
 
 export const Logo: React.FC<{
