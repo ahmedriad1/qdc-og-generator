@@ -1,4 +1,5 @@
 import { isDev } from "@/utils/functions";
+import chrome from "chrome-aws-lambda";
 
 const exePath =
   process.platform === "win32"
@@ -23,9 +24,9 @@ export async function getOptions() {
     };
   } else {
     options = {
-      args: ["--no-sandbox", "--font-render-hinting=none"],
-      executablePath: "/usr/bin/chromium-browser",
-      headless: true,
+      args: chrome.args,
+      executablePath: await chrome.executablePath,
+      headless: chrome.headless,
     };
   }
 
