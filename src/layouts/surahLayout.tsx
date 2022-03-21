@@ -11,6 +11,7 @@ const getCSS: GetCSSFn = async () => {
     h1 {
       font-size: 300px;
       font-family: surahnames;
+      font-weight: 500;
       color: white;
     }
   `;
@@ -29,7 +30,10 @@ const Component: LayoutComponent = ({ config }) => {
         justifyContent: "center",
       }}
     >
-      <h1>{surah.padStart(3, "0")}</h1>
+      <h1>
+        <span>{surah.padStart(3, "0")}</span>
+        <span style={{ marginLeft: 20 }}>surah</span>
+      </h1>
     </div>
   );
 };
